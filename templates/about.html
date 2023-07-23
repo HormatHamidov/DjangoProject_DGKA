@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>About Page</h1>
+
+<center>
+    <h3>Articles</h3>
+</center>
+    
+    {% if articles %}
+        {% for article in articles %}
+            <h2>Author name: {{article.author}}</h2>
+            <h3>Title: {{article.title}} </h3>
+            <h4>Content: {{article.content}} </h4>
+            <h4>Created date: {{article.created_date}} </h4>
+            {% if article.article_image %}
+            <img style="width: 400px; height:300px;" src="{{article.article_image.url}}">
+            {% endif %}
+            <hr>
+        {% endfor %}
+
+    {% else %}
+    <center>
+        <h2 style="color: red;">Heleki bir meqalemiz yoxdur</h2>
+    </center>
+    {% endif %}
+{% endblock body %}
